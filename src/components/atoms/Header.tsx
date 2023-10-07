@@ -1,5 +1,4 @@
-const Header = () => {
-  return  <div className="text-xl font-semibold mb-2">Header</div>;
+const Header = (props:any) => {
+  return <div className="text-xl font-semibold">{props.children}</div>;
 };
-
 export default Header;
