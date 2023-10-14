@@ -22,5 +22,6 @@
     html {
         font-family: "Lunchtype", sans-serif;
         font-weight: 500;
+        letter-spacing: 1px;
     }
 }
