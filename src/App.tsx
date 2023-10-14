@@ -16,7 +16,7 @@ const App: React.FC = () => {
   const currencyCode = 'PLN';
 
   return (
-    <div className="App p-16 bg-slate-900 h-full">
+    <div className="App p-8 bg-slate-900 h-full">
       <InputGroup>
         <DataTable 
           data={[
@@ -50,7 +50,7 @@ const App: React.FC = () => {
             }
           ]} 
           columns={[
-            {key: 'transaction_date', label: 'TRANSACTION_DATE'},
+            {key: 'transaction_date', label: 'TRANSACTION DATE'},
             {key: 'category', label: 'CATEGORY'},
             {key: 'volume', label: 'VOLUME', processor: (volume) => <>{volume}<span className='font-semibold text-slate-500'> {currencyCode}</span></>},
             {key: 'description', label: 'DESCRIPTION'},
