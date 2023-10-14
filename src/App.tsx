@@ -16,16 +16,26 @@ const App: React.FC = () => {
   return (
     <div className="App p-8 bg-slate-900 h-full">
       <InputGroup>
-        <NumberInput 
-          label='Amount'
-          value={amount} 
-          onChange={setAmount} 
-          min={0} 
+        <NumberInput
           max={1000}
+          min={-1000}
+          label='Amount'
+          value={amount}
+          onChange={setAmount}
         />
       </InputGroup>
+
       <InputGroup>
-        <DataTable 
+        <NumberInput
+          label='Amount'
+          value={amount}
+          onChange={setAmount}
+          unitText='PLN'
+        />
+      </InputGroup>
+
+      <InputGroup>
+        <DataTable
           data={[
             {
               transaction_date: '05.06.2023',
@@ -55,13 +65,13 @@ const App: React.FC = () => {
               description: 'Bunjee jumping',
               sender: 'Maybe me',
             }
-          ]} 
+          ]}
           columns={[
-            {key: 'transaction_date', label: 'TRANSACTION DATE'},
-            {key: 'category', label: 'CATEGORY'},
-            {key: 'volume', label: 'VOLUME', processor: (volume) => <>{volume}<span className='font-semibold text-slate-500'> {currencyCode}</span></>},
-            {key: 'description', label: 'DESCRIPTION'},
-            {key: 'sender', label: 'SENDER'}
+            { key: 'transaction_date', label: 'TRANSACTION DATE' },
+            { key: 'category', label: 'CATEGORY' },
+            { key: 'volume', label: 'VOLUME', processor: (volume) => <>{volume}<span className='font-semibold text-slate-500'> {currencyCode}</span></> },
+            { key: 'description', label: 'DESCRIPTION' },
+            { key: 'sender', label: 'SENDER' }
           ]}
         />
       </InputGroup>
@@ -148,7 +158,7 @@ const App: React.FC = () => {
         <Button text='Create' variant='success' />
       </InputGroup>
       <InputGroup>
-        <Button text='Create' disabled={true} isLoading={true} loadingText='Creating...'/>
+        <Button text='Create' disabled={true} isLoading={true} loadingText='Creating...' />
       </InputGroup>
     </div>
   );

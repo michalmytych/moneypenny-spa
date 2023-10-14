@@ -5,17 +5,17 @@
 @font-face {
     font-family: Lunchtype;
     src: url("./assets/fonts/Lunchtype22-Light.ttf") format("truetype"),
-         url("./assets/fonts/Lunchtype22-Regular.ttf") format("truetype"),
-         url("./assets/fonts/Lunchtype22-Medium.ttf") format("truetype"),
-         url("./assets/fonts/Lunchtype23-Light-Italic.ttf") format("truetype"),
-         url("./assets/fonts/Lunchtype23-Medium-Italic.ttf") format("truetype"),
-         url("./assets/fonts/Lunchtype23-Regular-Italic.ttf") format("truetype"),
-         url("./assets/fonts/Lunchtype24-Light-Expanded.ttf") format("truetype"),
-         url("./assets/fonts/Lunchtype24-Medium-Expanded.ttf") format("truetype"),
-         url("./assets/fonts/Lunchtype24-Regular-Expanded.ttf") format("truetype"),
-         url("./assets/fonts/Lunchtype25-Light-Condensed.ttf") format("truetype"),
-         url("./assets/fonts/Lunchtype25-Medium-Condensed.ttf") format("truetype"),
-         url("./assets/fonts/Lunchtype25-Regular-Condensed.ttf") format("truetype");
+        url("./assets/fonts/Lunchtype22-Regular.ttf") format("truetype"),
+        url("./assets/fonts/Lunchtype22-Medium.ttf") format("truetype"),
+        url("./assets/fonts/Lunchtype23-Light-Italic.ttf") format("truetype"),
+        url("./assets/fonts/Lunchtype23-Medium-Italic.ttf") format("truetype"),
+        url("./assets/fonts/Lunchtype23-Regular-Italic.ttf") format("truetype"),
+        url("./assets/fonts/Lunchtype24-Light-Expanded.ttf") format("truetype"),
+        url("./assets/fonts/Lunchtype24-Medium-Expanded.ttf") format("truetype"),
+        url("./assets/fonts/Lunchtype24-Regular-Expanded.ttf") format("truetype"),
+        url("./assets/fonts/Lunchtype25-Light-Condensed.ttf") format("truetype"),
+        url("./assets/fonts/Lunchtype25-Medium-Condensed.ttf") format("truetype"),
+        url("./assets/fonts/Lunchtype25-Regular-Condensed.ttf") format("truetype");
 }
 
 @layer base {
