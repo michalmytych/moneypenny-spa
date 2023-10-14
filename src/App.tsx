@@ -13,6 +13,8 @@ const App: React.FC = () => {
     console.log(name);
   }, [name]);
 
+  const currencyCode = 'PLN';
+
   return (
     <div className="App p-16 bg-slate-900 h-full">
       <InputGroup>
@@ -21,28 +23,28 @@ const App: React.FC = () => {
             {
               transaction_date: '05.06.2023',
               category: 'Entertainment',
-              volume: '600.00 PLN',
+              volume: 600.00,
               description: 'Having fun in Cracow',
               sender: 'Me, Myself & I',
             },
             {
               transaction_date: '05.06.2023',
               category: 'Music',
-              volume: '4,600.00 PLN',
+              volume: 4_600.00,
               description: 'Fender Stratocaster',
               sender: 'Definetely me',
             },
             {
               transaction_date: '05.06.2023',
               category: 'Drinks',
-              volume: '20.00 PLN',
+              volume: 20.00,
               description: 'Whisky bourbon',
               sender: "It's not me",
             },
             {
               transaction_date: '05.06.2023',
               category: 'Entertainment',
-              volume: '600.00 PLN',
+              volume: 750.00,
               description: 'Bunjee jumping',
               sender: 'Maybe me',
             }
@@ -50,7 +52,7 @@ const App: React.FC = () => {
           columns={[
             {key: 'transaction_date', label: 'TRANSACTION_DATE'},
             {key: 'category', label: 'CATEGORY'},
-            {key: 'volume', label: 'VOLUME'},
+            {key: 'volume', label: 'VOLUME', processor: (volume) => <>{volume}<span className='font-semibold text-slate-500'> {currencyCode}</span></>},
             {key: 'description', label: 'DESCRIPTION'},
             {key: 'sender', label: 'SENDER'}
           ]}
