@@ -4,6 +4,7 @@ import InputMessage from './components/molecules/input/InputMessage';
 import InputGroup from './components/molecules/input/InputGroup';
 import Button from './components/molecules/button/Button';
 import Header from './components/atoms/typography/Header';
+import DataTable from './components/organisms/DataTable';
 
 const App: React.FC = () => {
   const [name, setName] = useState('');
@@ -14,6 +15,48 @@ const App: React.FC = () => {
 
   return (
     <div className="App p-16 bg-slate-900 h-full">
+      <InputGroup>
+        <DataTable 
+          data={[
+            {
+              transaction_date: '05.06.2023',
+              category: 'Entertainment',
+              volume: '600.00 PLN',
+              description: 'Having fun in Cracow',
+              sender: 'Me, Myself & I',
+            },
+            {
+              transaction_date: '05.06.2023',
+              category: 'Music',
+              volume: '4,600.00 PLN',
+              description: 'Fender Stratocaster',
+              sender: 'Definetely me',
+            },
+            {
+              transaction_date: '05.06.2023',
+              category: 'Drinks',
+              volume: '20.00 PLN',
+              description: 'Whisky bourbon',
+              sender: "It's not me",
+            },
+            {
+              transaction_date: '05.06.2023',
+              category: 'Entertainment',
+              volume: '600.00 PLN',
+              description: 'Bunjee jumping',
+              sender: 'Maybe me',
+            }
+          ]} 
+          columns={[
+            {key: 'transaction_date', label: 'TRANSACTION_DATE'},
+            {key: 'category', label: 'CATEGORY'},
+            {key: 'volume', label: 'VOLUME'},
+            {key: 'description', label: 'DESCRIPTION'},
+            {key: 'sender', label: 'SENDER'}
+          ]}
+        />
+      </InputGroup>
+
       <Header size={1}>This is Baxton UI Kit</Header>
       <Header size={2}>This is Baxton UI Kit</Header>
       <Header size={3}>This is Baxton UI Kit</Header>
