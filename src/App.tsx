@@ -1,22 +1,29 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import TextInput from './components/molecules/input/TextInput';
 import InputMessage from './components/molecules/input/InputMessage';
 import InputGroup from './components/molecules/input/InputGroup';
 import Button from './components/molecules/button/Button';
 import Header from './components/atoms/typography/Header';
 import DataTable from './components/organisms/DataTable';
+import NumberInput from './components/molecules/input/NumberInput';
 
 const App: React.FC = () => {
   const [name, setName] = useState('');
-
-  useEffect(() => {
-    console.log(name);
-  }, [name]);
+  const [amount, setAmount] = useState(420.00);
 
   const currencyCode = 'PLN';
 
   return (
     <div className="App p-8 bg-slate-900 h-full">
+      <InputGroup>
+        <NumberInput 
+          label='Amount'
+          value={amount} 
+          onChange={setAmount} 
+          min={0} 
+          max={1000}
+        />
+      </InputGroup>
       <InputGroup>
         <DataTable 
           data={[
