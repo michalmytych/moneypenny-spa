@@ -2,14 +2,16 @@ import React, { ReactNode } from 'react'
 
 type InputMessageProps = {
     children: ReactNode,
+    centered?: boolean,
     variant?: 'danger' | 'success' | 'warning' | 'default';
 };
 
 const InputMessage: React.FC<InputMessageProps> = ({
     children = '',
-    variant = 'default'
+    variant = 'default',
+    centered = false
 }) => {
-    let textMessageClass = 'text-sm pt-2 pl-1'
+    let textMessageClass = `text-sm pt-2 pl-1 w-full ${centered ? 'text-center' : ''}`
     let classAppends = '';
 
     switch (variant) {
@@ -30,9 +32,11 @@ const InputMessage: React.FC<InputMessageProps> = ({
     textMessageClass = `${textMessageClass} ${classAppends}`;
 
     return (
-        <div className={textMessageClass}>
-            {children}
-        </div>
+        <div>
+            <div className={textMessageClass}>
+                {children}
+            </div>
+        </div>        
     );
 }
 

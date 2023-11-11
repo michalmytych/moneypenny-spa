@@ -1,5 +1,5 @@
 import React from 'react';
-import Loader from '../../atoms/state/Loader';
+import Loader from '../state/Loader';
 
 type TextInputProps = {
   disabled?: boolean;
@@ -8,6 +8,7 @@ type TextInputProps = {
   label?: string;
   value: string;
   isLoading?: boolean,
+  hide?: boolean,
   onChange: (value: string) => void;
 };
 
@@ -17,6 +18,7 @@ const TextInput: React.FC<TextInputProps> = ({
   variant = 'default',
   isLoading = false,
   label = '',
+  hide = false,
   value,
   onChange,
 }) => {
@@ -42,6 +44,7 @@ const TextInput: React.FC<TextInputProps> = ({
       labelClassAppend = 'text-yellow-500';
       break;
     default:
+      classAppends = 'border border-slate-700';
       labelClassAppend = 'text-slate-400';
       break;
   }
@@ -59,7 +62,8 @@ const TextInput: React.FC<TextInputProps> = ({
       }
       {label && <label className={`pl-1 flex items-center text-sm ${labelClassAppend}`}>{label}</label>}
       <input
-        type="text"
+        type={hide ? 'password' : 'text'}
+        spellCheck="false"
         className={textInputClass}
         disabled={disabled}
         placeholder={placeholder}

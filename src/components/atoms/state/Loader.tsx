@@ -27,7 +27,7 @@ const Loader: React.FC<LoaderProps> = ({ variant = 'sm' }) => {
     }
 
     return (
-        <LoaderVector className={`animate-spin ${sizeClasses} mb-0.5`} />
+        <LoaderVector className={`animate-spin ${sizeClasses}`} />
     );
 };
 

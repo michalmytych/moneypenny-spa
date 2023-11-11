@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { MouseEventHandler } from 'react';
 import Loader from '../../atoms/state/Loader';
 
 type ButtonProps = {
@@ -7,7 +7,7 @@ type ButtonProps = {
     variant?: 'primary' | 'secondary' | 'danger' | 'success';
     isLoading?: boolean;
     loadingText?: string,
-    onClick?: () => void;
+    onClick?: MouseEventHandler<HTMLButtonElement>;
 };
 
 const Button: React.FC<ButtonProps> = ({
@@ -18,10 +18,10 @@ const Button: React.FC<ButtonProps> = ({
     loadingText = null,
     onClick,
 }) => {
-    let buttonClass = `px-4 py-2 rounded-xl w-1/2 outline-none text-slate-50 transition flex items-center justify-center gap-2`;    
+    let buttonClass = `px-4 py-2 rounded-xl w-full outline-none text-slate-50 transition flex items-center justify-center gap-2`;    
 
     if (disabled) {
-        buttonClass = `${buttonClass} bg-gradient-to-r from-sky-700 via-sky-800 to-sky-900`;
+        buttonClass = `${buttonClass} bg-gradient-to-r from-blue-700 via-blue-800 to-blue-900`;
     } else {
         let classAppends = '';
 

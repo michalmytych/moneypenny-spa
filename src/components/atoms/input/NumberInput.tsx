@@ -1,5 +1,5 @@
 import React from 'react';
-import Loader from '../../atoms/state/Loader';
+import Loader from '../state/Loader';
 
 type NumberInputProps = {
     disabled?: boolean;
