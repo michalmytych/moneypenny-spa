@@ -1,10 +1,4 @@
 import React, { useState } from 'react';
-import TextInput from '../../components/lib/atoms/input/TextInput';
-import InputMessage from '../../components/lib/atoms/input/InputMessage';
-import CheckBoxInput from '../../components/lib/atoms/input/CheckBoxInput';
-import InputGroup from '../../components/lib/atoms/input/InputGroup';
-import Button from '../../components/lib/atoms/button/Button';
-import Header from '../../components/lib/atoms/typography/Header';
 import { useAuth } from '../../hooks/auth';
 
 const Login: React.FC = () => {
