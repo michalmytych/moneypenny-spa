@@ -1,8 +1,19 @@
 import React, { useState } from 'react';
 import { useAuth } from '../../hooks/auth';
+import { Typography, Input, Button, Spin, Checkbox, Layout, Flex } from 'antd';
+
+const { Title } = Typography;
+
+const InputGroup = (props: any) => { // @todo - move
+  return <div style={{ padding: '0.5rem' }}>{props.children}</div>;
+}
+
+const InputMessage = (props: any) => { // @todo - move
+  return <div style={{ color: 'red', padding: '0.25rem' }}>{props.children}</div>;
+}
 
 const Login: React.FC = () => {
-  const { authenticated, signIn, signOut, user } = useAuth();
+  const { authenticated, signIn, user } = useAuth();
   const [isLoading, setIsLoading] = useState<boolean>(false);
   const [formError, setFormError] = useState<string | undefined>(undefined);
   const [loginError, setLoginError] = useState<string | undefined>(undefined);
@@ -35,84 +46,54 @@ const Login: React.FC = () => {
     }, remember);
   };
 
-  const handleLogoutClick = (e: any) => {
-    e.preventDefault();
-    setLoginError(undefined);
-    setPasswordError(undefined);
-    setIsLoading(true);
-
-    signOut({
-      onSuccess: () => {
-        setIsLoading(false)
-      },
-      onError: (e: any) => setFormError(e.response?.data?.message)
-    });
-  };
-
   return (
-    <div className='flex h-screen items center justify-center bg-slate-900'>
-      <div className='w-full lg:w-1/3 md:w-2/3 sm:w-full pt-40 px-2'>
+    <Layout style={{ height: '100vh', width: '100vw', position: 'fixed' }}>
+      <div style={{ width: '20%', margin: '0 auto' }}>
         <InputGroup>
-          <div className='text-center'>
+          <Flex justify="center">
             {authenticated
-              ? <Header size={1}>Logged in</Header>
-              : <Header size={1}>Login</Header>
+              ? <Title level={2}>Logged in</Title>
+              : <Title level={2}>Login</Title>
             }
-          </div>
+          </Flex>
         </InputGroup>
         <form action="">
-          <div className='mt-5'>
-            <InputGroup>
-              <TextInput
-                value={login}
-                onChange={setLogin}
-                disabled={isLoading}
-                variant={loginError ? 'danger' : 'default'}
-                placeholder='Username or email'
-              />
-              <InputMessage variant='danger'>{loginError}</InputMessage>
-            </InputGroup>
-          </div>
-          <div className='mt-5'>
-            <InputGroup>
-              <TextInput
-                hide={true}
-                value={password}
-                disabled={isLoading}
-                variant={passwordError ? 'danger' : 'default'}
-                onChange={setPassword}
-                placeholder='Password'
-              />
-              <InputMessage variant='danger'>{passwordError}</InputMessage>
-            </InputGroup>
-          </div>
-          <div className='w-full'>
-            <div className='pt-5 mt-0.5'>
-              <InputGroup>
-                {authenticated
-                  ? (isLoading
-                    ? <Button variant='danger' text='Logging out' disabled={true} isLoading={true} />
-                    : <Button variant='danger' text='Logout' onClick={handleLogoutClick} />)
-                  : (isLoading
-                    ? <Button text='Logging in' disabled={true} isLoading={true} />
-                    : <Button text='Login' onClick={handleLoginClick} />)
-                }
-                <InputMessage centered={true} variant='danger'>{formError}</InputMessage>
-              </InputGroup>
-            </div>
-          </div>
-          <div className='mt-5'>
-            <InputGroup>
-              <CheckBoxInput
-                checked={remember}
-                onChange={(e) => setRemember(e.target?.checked)}
-                label='Remember'
-              />
-            </InputGroup>
-          </div>
+          <InputGroup>
+            <Input
+              value={login}
+              onChange={e => setLogin(e.target.value)}
+              disabled={isLoading}
+              placeholder='Username or email'
+            />
+            <InputMessage>{loginError}</InputMessage>
+          </InputGroup>
+          <InputGroup>
+            <Input
+              value={password}
+              disabled={isLoading}
+              onChange={e => setPassword(e.target.value)}
+              placeholder='Password'
+            />
+            <InputMessage>{passwordError}</InputMessage>
+          </InputGroup>
+          <InputGroup>
+            {isLoading
+              ? <Spin tip="Logging in" size="small" />
+              : <Button block type="primary" onClick={handleLoginClick}>Login</Button>
+            }
+            <InputMessage>{formError}</InputMessage>
+          </InputGroup>
+          <InputGroup>
+            <Checkbox
+              checked={remember}
+              onChange={(e) => setRemember(e.target?.checked)}
+            >
+              Remember
+            </Checkbox>
+          </InputGroup>
         </form>
       </div>
-    </div>
+    </Layout>
   );
 }
 

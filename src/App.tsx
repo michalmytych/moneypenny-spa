@@ -1,14 +1,12 @@
 import React from 'react';
-import Home from './pages/home/Home';
-// import Login from './pages/auth/Login';
+import Login from './pages/auth/Login';
+import AntdConfigProvider from './providers/AntdConfigProvider';
 
 const App: React.FC = () => {
   return (
-    <>
-      <Home />
-    </>    
-    // <Login />
-    // <ComponentsShowcase />
+    <AntdConfigProvider>
+      <Login />
+    </AntdConfigProvider>
   );
 }
 
