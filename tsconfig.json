@@ -1,4 +1,8 @@
 {
+  "include": [
+    "src",
+    "src/config/custom.d.ts"
+  ],
   "compilerOptions": {
     "target": "es5",
     "lib": [
@@ -19,8 +23,5 @@
     "isolatedModules": true,
     "noEmit": true,
     "jsx": "react-jsx"
-  },
-  "include": [
-    "src"
-  ]
+  }
 }

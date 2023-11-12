@@ -1,11 +1,11 @@
 import React, { useState } from 'react';
-import TextInput from '../components/atoms/input/TextInput';
-import InputMessage from '../components/atoms/input/InputMessage';
-import InputGroup from '../components/atoms/input/InputGroup';
-import Button from '../components/molecules/button/Button';
-import Header from '../components/atoms/typography/Header';
-import NumberInput from '../components/atoms/input/NumberInput';
-import DataTable from '../components/organisms/DataTable';
+import TextInput from '../components/lib/atoms/input/TextInput';
+import InputMessage from '../components/lib/atoms/input/InputMessage';
+import InputGroup from '../components/lib/atoms/input/InputGroup';
+import Button from '../components/lib/atoms/button/Button';
+import Header from '../components/lib/atoms/typography/Header';
+import NumberInput from '../components/lib/atoms/input/NumberInput';
+import DataTable from '../components/lib/organisms/DataTable';
 
 const ComponentsShowcase: React.FC = () => {
     const [name, setName] = useState('');
